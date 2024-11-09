@@ -1,3 +1,7 @@
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -11,3 +15,22 @@
     gap: 1rem;
 }
 
+.intro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+    background-color: antiquewhite;
+    text-align: center;
+}
+
+.about{
+    padding: 2rem;
+    text-align: center;
+}
+
+.quote{
+    padding: 2rem;
+    text-align: center;
+    background-color: antiquewhite;
+}
