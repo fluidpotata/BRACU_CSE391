@@ -87,6 +87,10 @@ body {
     background-color: antiquewhite;
 }
 
+.quotetext{
+    display: none;
+}
+
 .contact {
     text-align: center;
     padding: 40px;
@@ -119,6 +123,7 @@ h2 {
   .link-category {
     flex: 1;
     min-width: 200px;
+    padding-right: 2%;
   }
   
   .link-category h3 {
@@ -264,4 +269,51 @@ h2 {
 .project-item:hover {
     transform: translateY(-2px);
     border-color: #7f5af0;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+    .intro{
+        flex-direction: column;
+    }
+    .intropic {
+        display: none;
+    }
+    .general-links {
+        display: flex;
+        flex-direction: column;
+    }
+    .academic-results {
+        flex-direction: column;
+        /* border-collapse: collapse; */
+        padding: none;
+    }
+    .restable {
+        display: block;
+    }
+    .quote img{
+        display: none;
+    }
+    .quotetext{
+        display: block;
+    }
+    .my-projects {
+        flex-direction: column;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .nav-links {
+        flex-direction: column;
+    }
+    .academic-results {
+        /* height: 90vh;
+        width: 90vw; */
+        size: 90%;
+        border-collapse: collapse;
+    }
+
 }
