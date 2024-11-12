@@ -271,6 +271,43 @@ h2 {
     border-color: #7f5af0;
 }
 
+
+.top-skills {
+    padding: 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.top-skills h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.top-skills ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.top-skills li {
+    display: inline-block;
+    margin: 15px;
+    text-align: center;
+}
+
+.top-skills img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 8px;
+}
+
+.top-skills li:hover {
+    opacity: 0.8;
+}
+
+
+
+
+
 @media screen and (max-width: 768px) {
     .navbar {
         flex-direction: column;
