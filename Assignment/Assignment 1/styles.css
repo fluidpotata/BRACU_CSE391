@@ -187,9 +187,16 @@ h2 {
     flex-wrap: wrap;
 }
 
+.restable{
+    min-width: 50%;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
 
 .academic-results table {
     width: 100%;
+    min-width: 600px;
     max-width: 600px;
     border-collapse: collapse;
     background-color: #2c2c3e;
@@ -323,8 +330,12 @@ h2 {
         /* border-collapse: collapse; */
         padding: none;
     }
+    .academic-results table {
+        min-width: 0;
+    }
     .restable {
         display: block;
+        min-width: 0;
     }
     .quote img{
         display: none;
