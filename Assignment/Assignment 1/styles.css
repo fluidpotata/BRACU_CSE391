@@ -9,6 +9,8 @@ body {
     align-items: center;
     padding: 1rem;
     background-color: #1b1b2f;
+    /* position: fixed; */
+
 }
 
 .logo {
@@ -108,31 +110,31 @@ h2 {
     text-align: left;
   }
   
-  .general-links h2 {
+.general-links h2 {
     font-size: 2rem;
     color: #fff;
     margin-bottom: 1rem;
-  }
-  
-  .links-container {
+}
+
+.links-container {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
-  }
-  
-  .link-category {
+}
+
+.link-category {
     flex: 1;
     min-width: 200px;
     padding-right: 2%;
-  }
-  
-  .link-category h3 {
+}
+
+.link-category h3 {
     font-size: 1.2rem;
     color: #bbb;
     margin-bottom: 1rem;
-  }
-  
-  .link-card {
+}
+
+.link-card {
     display: block;
     padding: 0.8rem 1rem;
     margin-bottom: 0.5rem;
@@ -141,18 +143,19 @@ h2 {
     text-decoration: none;
     border-radius: 8px;
     border-left: 3px solid #0f0;
+    /* border-bottom: 2px solid #0f0;; */
     transition: transform 0.2s, border-color 0.2s;
-  }
-  
-  .link-card:hover {
+    }
+
+.link-card:hover {
     transform: translateY(-2px);
     border-color: #7f5af0;
-  }
-  
+    }  
+
 
 .social-media {
-    padding: 50px;
-}
+        padding: 50px;
+    }
 
 
 .icon {
@@ -181,17 +184,9 @@ h2 {
     padding: 100px;
     background-color: #1b1b2f;
     color: #ffffff;
+    flex-wrap: wrap;
 }
 
-.academic-results h2 {
-    font-size: 2.2rem;
-    color: #ffffff;
-    margin: 0;
-    padding-right: 1rem;
-    min-width: 200px;
-    text-align: left;
-    flex-shrink: 0;
-}
 
 .academic-results table {
     width: 100%;
@@ -223,9 +218,6 @@ h2 {
     background-color: #2c2c3e;
 }
 
-.academic-results tr:hover {
-    background-color: #44475a;
-}
 
 
 
@@ -319,6 +311,10 @@ h2 {
         display: none;
     }
     .general-links {
+        display: flex;
+        flex-direction: column;
+    }
+    .links-container {
         display: flex;
         flex-direction: column;
     }

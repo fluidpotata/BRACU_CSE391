@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>CSE391 Assignment 1</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logobar">
+                <a href="/" class="logo">Ibrahim Alif</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/index.html#about">About</a></li>
+                <li><a href="/index.html#contact">Contact</a></li>
+                <li><a href="/index.html#general-links">Links</a></li>
+                <li><a href="/consultation.html">Consultation</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="about" id="about">
+        <div class="innerabout">
+            <h2>About this position</h2>
+            <p>As a student tutor my duty is to provide 3 hours weekly of 
+                in-lab support, assisting students with their coursework 
+                and practical lab assignments, offer 12 hours of consultation 
+                each week, guiding students on academic topics, clarifying concepts, 
+                and helping them achieve their learning goals, review and grade assignments 
+                and quizzes, offering constructive feedback to promote continuous improvement 
+                and understanding, facilitate a positive learning environment, helping 
+                students develop problem-solving skills and build confidence in their 
+                studies. </p>
+        </div>
+    </section>
+
+
+    <section class="academic-results">
+        <h2>Consultation Hours</h2>
+        <div class="restable">
+            <table>
+          <thead>
+            <tr>
+              <th>Day</th>
+              <th>Time</th>
+              <th>Room</th>
+
+            </tr>
+          </thead>
+            <tbody>
+            <tr>
+                <td>Saturday</td>
+                <td>2PM - 5PM</td>
+                <td>12B-19L</td>
+            </tr>
+            <tr>
+                <td>Sunday</td>
+                <td>9PM - 12PM</td>
+                <td><a href="https://discord.gg/Y8bT6kGN3m" style="color:white;">CSE Discord Server</td>
+            </tr>
+            <tr>
+                <td>Monday</td>
+                <td>8AM - 11AM</td>
+                <td>12B-19L</td>
+            </tr>
+            <tr>
+                <td>Wednesday</td>
+                <td>8AM -1 1AM</td>
+                <td>12B-19L</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>      
+      </section>
+
+
+    <footer class="footer">
+        <strong>Last modified: <span id="modtime"></span></strong>
+    </footer>
+
+    <script>
+        document.getElementById("modtime").textContent = document.lastModified;
+    </script>
+
+</body>
+</html>
