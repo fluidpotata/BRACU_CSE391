@@ -3,6 +3,6 @@ var quotes=[
 ]
 
 function generateQuote() {
-    const quotebox = document.getElementById('quote-box');
-    quotebox.textContent = quotes[0];
+    const quotetplace = document.getElementById('quote');
+    quotetplace.textContent = quotes[0];
 }

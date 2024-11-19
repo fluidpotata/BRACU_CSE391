@@ -1,7 +1,13 @@
 * {
     text-decoration: none;
+    margin: 0;
+    padding: 0;
+
 }
 
+h1 {
+    padding: 10px;
+}
 .quotepage {
     display: flex;
     justify-content:center;
@@ -45,13 +51,18 @@ body{
 .nav-btn:hover {
     outline: 0;
     background-color: #000;
-    transition: 0.3s;
+    /* transition: 0.3s; */
     border-style:ridge;
-    border-width: 0px 0px 1px 0px;
+    border-width: 0px 0px 2px 0px;
     border-color: aqua;
     cursor: grab;
 }
-
+.icon {
+    height: 20px;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 
 .mainpage{
@@ -61,4 +72,38 @@ body{
     align-items: center;
     justify-content: center;
     padding: 20px;
+}
+.quote-box {
+    display: flex;
+    border: #000;
+    border-width: 2px;
+    border-style: solid;
+    min-width: 400px;
+    min-height: 200px;
+    align-items: center;
+    justify-content: center;
+}
+.quote{
+    height: auto;
+    width: auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.quote-btn {
+    margin-top: 5%;
+    background-color: #00ADB5;
+    padding: 15px;
+    /* font-size: 30px; */
+}
+.quote-btn:hover {
+    outline: 0;
+    background-color: #000;
+    /* transition: 0.3s; */
+    border-style:ridge;
+    border-width: 0px 0px 2px 0px;
+    border-color: aqua;
+    cursor: grab;
+    color: #fff;
 }
