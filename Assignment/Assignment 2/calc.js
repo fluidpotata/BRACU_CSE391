@@ -8,7 +8,7 @@ const calcRev = document.getElementById("calc-rev");
 function calculator() {
     var inputVal = inputArea.value;
     var handle = inputVal.split(",");
-    console.log(handle);
+    // console.log(handle);
     calcMax.textContent = `${Math.max(...handle)}`;
     calcMin.textContent = `${Math.min(...handle)}`;
     var sum = 0;
