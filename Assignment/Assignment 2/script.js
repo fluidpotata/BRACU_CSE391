@@ -23,8 +23,7 @@ function changeColor(clr) {
         "borderColor" : {"red": "#FF2929", "green": "#62825D","blue": "#4335A7","orange": "#FF885B",},
         "font" : {"red": "Lucida Sans Unicode", "green": "Lucida Grande", "blue": "Trebuchet MS", "orange": "Lucida Sans",},
         "fontSize" : {"red": "16px", "green": "20px", "blue": "18px", "orange": "19px",}
-    }
-    console.log(colors["color"][clr]);
+    };
     quotebox = document.getElementById("quote-box");
     quotebox.style.color = colors["color"][clr];
     quotebox.style.backgroundColor = colors["backgroundColor"][clr];
