@@ -2,7 +2,6 @@
     text-decoration: none;
     margin: 0;
     padding: 0;
-
 }
 
 h1 {
@@ -82,28 +81,62 @@ body{
     min-height: 200px;
     align-items: center;
     justify-content: center;
+    border-radius: 5%;
 }
 .quote{
     height: auto;
     width: auto;
+    display: block;
+    margin: 5px;
+    padding: 5px;
     align-items: center;
     justify-content: center;
-    text-align: center;
+    text-align: center; 
 }
 
+.quote-btns {
+    display: inline;
+}
 .quote-btn {
+    display: inline;
     margin-top: 5%;
-    background-color: #00ADB5;
+    /* background-color: #00ADB5; */
     padding: 15px;
     /* font-size: 30px; */
+    border-radius: 50%;
 }
 .quote-btn:hover {
     outline: 0;
-    background-color: #000;
+    /* background-color: #000; */
     /* transition: 0.3s; */
     border-style:ridge;
-    border-width: 0px 0px 2px 0px;
-    border-color: aqua;
+    border-width: 3px 3px 3px 3px;
+    /* border-color: aqua; */
     cursor: grab;
-    color: #fff;
+    /* color: #fff; */
+}
+
+.red-btn {
+    background-color: #f00;
+}
+.green-btn {
+    background-color: #0f0;
+}
+.blue-btn {
+    background-color: #00f;
+}
+.orange-btn {
+    background-color: rgb(255, 145, 0);
+}
+
+select input {
+    width: 100%;
+    padding: 5px;
+}
+
+.calc-display {
+    text-align: left;
+}
+.calc-output {
+    margin-top: 2px;
 }

@@ -21,16 +21,25 @@
         </nav>
 
         <div class="mainpage">
-            <h1>Random Quote</h1>
+            <h1 style="font-family: 'Trebuchet MS', sans-serif;">Fortune Cookie</h1>
             <div class="quote-box" id="quote-box">
                 <div class="quote" id="quote"></div>
             </div>
-            <button class="quote-btn" onclick="generateQuote()">Generate Token</button>
+            <div class="quote-btns">
+                <button class="quote-btn red-btn" onclick="changeColor('red')"></button>
+                <button class="quote-btn green-btn" onclick="changeColor('green')"></button>
+                <button class="quote-btn blue-btn" onclick="changeColor('blue')"></button>
+                <button class="quote-btn orange-btn" onclick="changeColor('orange')"></button>
+            </div>
+            <!-- <button class="quote-btn" onclick="generateQuote()">Generate Token</button> -->
         </div>
 
 
     </div>
 
     <script src="script.js"></script>
+    <script>
+        window.onload = generateQuote();
+    </script>
 </body>
 </html>
