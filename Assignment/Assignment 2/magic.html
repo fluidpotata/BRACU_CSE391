@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="quotepage">
+    <nav class="navbar">
+        <div class="nav-btn" onclick="location.href='/'">
+            <a href="/"><img src="/icons/home.png" alt="" class="icon">  Home</a>
+        </div>
+        <div class="nav-btn" onclick="location.href='/conv.html'">
+            <a href="/conv.html"><img src="/icons/converter.png" alt="" class="icon"> Converter</a>
+        </div>
+        <div class="nav-btn" onclick="location.href='/calc.html'">
+            <a href="/calc.html"><img src="/icons/calculator.png" alt="" class="icon"> Calculator</a>
+        </div>
+        <div class="nav-btn" onclick="location.href='/magic.html'">
+            <a href="/magic.html"><img src="/icons/magic.png" alt="" class="icon"> Magic </a>
+        </div>
+    </nav>
+
+    <div class="mainpage">
+        <h1>MAGIC</h1>
+        <div class="magic-box" id="magic-box">
+            <div class="magicBox" id="magicBox">
+                <form id="magicForm">
+                    <textarea class="magicDisplay" id="formDisplay" name="display"></textarea>
+                </form>
+            </div>
+        </div>
+        <div class="quote-btns" id="quote-btns">
+            <button class="quote-btn" type="button" id="clear-btn" onclick="clearAll()">Clear All</button>
+            <button class="quote-btn" type="button" id="capitalize-btn" onclick="toggleCapitalize()">Capitalize</button>
+            <button class="quote-btn" type="button" id="sort-btn" onclick="sortLines()">Sort</button>
+            <button class="quote-btn" type="button" id="reverse-btn" onclick="reverseLines()">Reverse</button>
+            <button class="quote-btn" type="button" id="strip-blank-btn" onclick="stripBlank()">Strip Blank</button>
+            <button class="quote-btn" type="button" id="add-numbers-btn" onclick="addNumbers()">Add Numbers</button>
+            <button class="quote-btn" type="button" id="shuffle-btn" onclick="shuffleLines()">Shuffle</button>
+        </div>
+
+    </div>
+
+
+</div>
+
+<script src="script.js"></script>
+<script src="magic.js"></script>
+<script>
+    // sort();
+</script>
+</body>
+</html>
