@@ -52,7 +52,7 @@ function addNumbers() {
     const lines = textArea.value.split('\n');
     const numberedLines = [];
     for (let i = 0; i < lines.length; i++) {
-        const trimmedLine = lines[i].trim();
+        const trimmedLine = lines[i];
         if (trimmedLine !== '') {
             numberedLines.push((i + 1) + '. ' + trimmedLine);
         }
