@@ -41,10 +41,7 @@ function stripBlank() {
     const strippedLines = [];
     for (let i = 0; i < lines.length; i++) {
         const trimmedLine = lines[i].trim();
-        if (trimmedLine !== '') {
-            strippedLines.push(trimmedLine);
-        }
-    }
+        strippedLines.push(trimmedLine);
     textArea.value = strippedLines.join('\n');
 }
 
