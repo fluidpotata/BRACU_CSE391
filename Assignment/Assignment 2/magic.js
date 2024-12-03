@@ -42,17 +42,15 @@ function stripBlank() {
     for (let i = 0; i < lines.length; i++) {
         const trimmedLine = lines[i].trim();
         strippedLines.push(trimmedLine);
-    textArea.value = strippedLines.join('\n');
+        textArea.value = strippedLines.join('\n');
+    }
 }
-
 function addNumbers() {
     const lines = textArea.value.split('\n');
     const numberedLines = [];
     for (let i = 0; i < lines.length; i++) {
         const trimmedLine = lines[i];
-        if (trimmedLine !== '') {
-            numberedLines.push((i + 1) + '. ' + trimmedLine);
-        }
+        numberedLines.push((i + 1) + '. ' + trimmedLine);
     }
     textArea.value = numberedLines.join('\n');
 }
