@@ -47,7 +47,7 @@
               <th>Day</th>
               <th>Time</th>
               <th>Room</th>
-
+              <th>Remarks</th>
             </tr>
           </thead>
             <tbody>
@@ -55,22 +55,33 @@
                 <td>Saturday</td>
                 <td>2PM - 5PM</td>
                 <td>12B-19L</td>
+                <td> </td>
             </tr>
             <tr>
                 <td>Sunday</td>
                 <td>9PM - 12PM</td>
-                <td><a href="https://discord.gg/Y8bT6kGN3m" style="color:white;">CSE Discord Server</td>
+                <td><a href="https://discord.gg/Y8bT6kGN3m" style="color:white;">CSE Discord Server</a></td>
+                <td> </td>
             </tr>
             <tr>
                 <td>Monday</td>
                 <td>8AM - 11AM</td>
                 <td>12B-19L</td>
+                <td>I will be available until 3:30PM on campus, so if anyone
+                    needs any extra consultation hours on that day, make sure you mail me on my official
+                    mail address beforehand (at least 24hours!)</td>
             </tr>
             <tr>
                 <td>Wednesday</td>
-                <td>8AM -1 1AM</td>
+                <td>8AM - 11AM</td>
                 <td>12B-19L</td>
-                </tr>
+                <td> </td>
+            </tr>
+            <tr>
+                <td colspan="4">You can DM or mail me during any time of the week, I will respond to your queries as soon
+                    as possible, however for any emergency join anyone who is providing active consultation.
+                </td>
+            </tr>
             </tbody>
         </table>
         </div>      
@@ -79,10 +90,12 @@
 
     <footer class="footer">
         <strong>Last modified: <span id="modtime"></span></strong>
+        <strong>Page URL: <span id="pageurl"></span></strong>
     </footer>
 
     <script>
         document.getElementById("modtime").textContent = document.lastModified;
+        document.getElementById("pageurl").innerHTML = `<a href='${window.location.href}'>${window.location.href}</a>`;
     </script>
 
 </body>

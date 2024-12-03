@@ -15,15 +15,15 @@
             <ul class="nav-links">
                 <li><a href="/">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
                 <li><a href="#general-links">Links</a></li>
+                <li><a href="#contact">Contact</a></li>
                 <li><a href="/consultation.html">Consultation</a></li>
             </ul>
         </nav>
     </header>
     <section class="intro">
         <div class="introtext">
-             <h1>Hello!<br>This is Alif!<br>UG student at <a href="https://bracu.ac.bd/" class="intro-bracu" style="color:black;"">BRAC University</a></h1>
+             <h1>Hello!<br>This is Alif!<br>UG student at <a href="https://bracu.ac.bd/" class="intro-bracu" style="color:black;">BRAC University</a></h1>
         </div>
         <div class="intropic">
             <img src="/pictures/dp.png" alt="intro dp">
@@ -187,11 +187,12 @@
 
     <footer class="footer">
         <strong>Last modified: <span id="modtime"></span></strong>
+        <strong>Page URL: <span id="pageurl"></span></strong>
     </footer>
 
     <script>
         document.getElementById("modtime").textContent = document.lastModified;
+        document.getElementById("pageurl").innerHTML = `<a href='${window.location.href}'>${window.location.href}</a>`;
     </script>
-
 </body>
 </html>
