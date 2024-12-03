@@ -39,6 +39,7 @@ function sum(arr){
 function maxN(arr){
   var max = Number.NEGATIVE_INFINITY;
   for (p=0; p<arr.length; p++){
+    n = parseInt(arr[p]);
     if (max<n) {
       max = n;
       calcMax.textContent = max;
@@ -50,6 +51,7 @@ function maxN(arr){
 function minN(arr){
   var min = Number.POSITIVE_INFINITY;
   for (p=0; p<arr.length; p++){
+    n = parseInt(arr[p]);
     if (min>n) {
       min = n;
       calcMin.textContent = min;
