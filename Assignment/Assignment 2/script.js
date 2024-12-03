@@ -39,12 +39,16 @@ function convert() {
     const resultArea = document.getElementById("conv-result");
     const selectedUnit = dropdownMenu.value;
     const inputVal = enteredValue.value;
-    if (selectedUnit=="lb") {
-        var outputVal = inputVal* 0.4536;
-        resultArea.textContent = `${inputVal} Pound = ${outputVal} Kilograms`
-    } else if (selectedUnit=='kg') {
-        var outputVal = inputVal* 2.2046;
-        resultArea.textContent = `${inputVal} Kilograms = ${outputVal} Pound`
+    if (!isNaN(inputVal)){
+        if (selectedUnit=="lb") {
+            var outputVal = inputVal* 0.4536;
+            resultArea.textContent = `${inputVal} Pound = ${outputVal} Kilograms`
+        } else if (selectedUnit=='kg') {
+            var outputVal = inputVal* 2.2046;
+            resultArea.textContent = `${inputVal} Kilograms = ${outputVal} Pound`
+        }
+    }else{
+        resultArea.textContent = "Invalid input";
     }
 
 }

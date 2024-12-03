@@ -17,14 +17,8 @@ function toggleCapitalize() {
 
 function sortLines() {
     const lines = textArea.value.split('\n');
-    const nonEmptyLines = [];
-    for (let i = 0; i < lines.length; i++) {
-        if (lines[i].trim() !== '') {
-            nonEmptyLines.push(lines[i]);
-        }
-    }
-    nonEmptyLines.sort();
-    textArea.value = nonEmptyLines.join('\n');
+    lines.sort();
+    textArea.value = lines.join('\n');
 }
 
 function reverseLines() {
@@ -59,9 +53,7 @@ function shuffleLines() {
     const lines = textArea.value.split('\n');
     const nonEmptyLines = [];
     for (let i = 0; i < lines.length; i++) {
-        if (lines[i].trim() !== '') {
-            nonEmptyLines.push(lines[i]);
-        }
+        nonEmptyLines.push(lines[i]);
     }
     for (let i = nonEmptyLines.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
