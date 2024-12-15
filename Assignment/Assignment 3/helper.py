@@ -12,10 +12,6 @@ def takeAppointment():
     # A client should be able to entry their Car License number, Car Engine Number, appointment date and can select their desire mechanic
     return 
 
-def ifCarExists():
-    # database connection
-    return # result
-
 def isMechanicAvailable():
     # each mechanic is allowed to get assign on maximum 4 active cars(clients) everyday
     # if the mechanic is occupied with maximum no. of appointment the system should notify client otherwise it will approve the appointment.
