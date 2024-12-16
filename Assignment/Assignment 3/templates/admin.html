@@ -36,32 +36,31 @@
                 
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Available Mechanics</h3>
+                        <h3 class="card-title">All Appointments</h3>
                     </div>
-                    <div class="container">
-                        <div class="signup-container">
-                            {% if error %} 
-                            <div class="mb-3 text-center text-danger">
-                                <p>{{error}}</p>
-                            </div>
-                            {% endif %}
-                            <h2 class="text-center mb-4">Create Account</h2>
-                            <form action="/dashboard" method="POST">
-                                <div class="mb-3">
-                                    <label for="carLicenseNumber" class="form-label">Car License number</label>
-                                    <input type="text" class="form-control" id="carLicenseNumber" name="carLicenseNumber" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="carEngineNumber" class="form-label">Car Engine Number</label>
-                                    <input type="text" class="form-control" id="carEngineNumber" name="carEngineNumber" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="carAppointmentDate" class="form-label">Appointment date</label>
-                                    <input type="date" class="form-control" id="carAppointmentDate" name="carAppointmentDate" required>
-                                </div>
-                                <button type="submit" class="btn btn-primary w-100">Fix Appointment</button>
-                            </form>
-                        </div>
+                    <div class="card-body">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>User</th>
+                                    <th>Mechanic</th>
+                                    <th>Car License</th>
+                                    <th>Car Engine</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for i in data %}
+                                <tr>
+                                    <th>{{i[2]}}</th>
+                                    <th>{{i[0]}}</th>
+                                    <th>{{i[1]}}</th>
+                                    <th>{{i[3]}}</th>
+                                    <th>{{i[4]}}</th>
+                                </tr>
+                                {% endfor%}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
