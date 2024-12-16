@@ -10,10 +10,12 @@ def ifAdmin():
     return # result
 
 
-def isAuthenticated(connection,username, password):
+def isAuthenticated(username, password):
+    connection = dbConnect()
     cursor = connection.cursor()
     cursor.execute(f"SELECT * FROM Clients WHERE username={username} AND password={password}")
     result = cursor.fetchall()
+    connection.close()
     if len(result)>0:
         return True
     return False
@@ -44,10 +46,12 @@ def ifAppointmentExists():
     # otherwise s/he will be notifying that he has already taken an appointment on that specific date.
     return
 
-def getClientAppointments(connection, username):
+def getClientAppointments(username):
+    connection = dbConnect()
     cursor = connection.cursor()
     cursor.execute(f"SELECT * FROM Appointments WHERE username={username}")
     result = cursor.fetchall()
+    connection.close()
     return result
 
 
