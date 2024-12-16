@@ -44,4 +44,10 @@ def ifAppointmentExists():
     # otherwise s/he will be notifying that he has already taken an appointment on that specific date.
     return
 
+def getClientAppointments(connection, username):
+    cursor = connection.cursor()
+    cursor.execute(f"SELECT * FROM Appointments WHERE username={username}")
+    result = cursor.fetchall()
+    return result
+
 

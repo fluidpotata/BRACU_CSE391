@@ -30,7 +30,7 @@ def signup():
 
 @app.route('/dashboard')
 def dashboard():
-    return render_template('dashboard.html')
+    return render_template('dashboard.html', data=getClientAppointments(database, session['username']))
 
 
 @app.route('/appointment')
