@@ -8,7 +8,7 @@ app.config["SECRET_KEY"] = "any random string"
 
 @app.route('/')
 def hello():
-    return 'Hello World!'
+    return render_template('index.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
