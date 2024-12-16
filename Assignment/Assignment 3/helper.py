@@ -11,13 +11,10 @@ def ifAdmin():
 
 
 def isAuthenticated(connection,username, password):
-    # cursor = connection.cursor()
-    # cursor.execute(f"SELECT * FROM Clients WHERE username={username} AND password={password}")
-    # result = cursor.fetchall()
-    # if len(result)>0:
-    #     return True
-    # return False
-    if username == 'admin' and password == 'admin':
+    cursor = connection.cursor()
+    cursor.execute(f"SELECT * FROM Clients WHERE username={username} AND password={password}")
+    result = cursor.fetchall()
+    if len(result)>0:
         return True
     return False
 
