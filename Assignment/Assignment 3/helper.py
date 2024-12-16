@@ -13,7 +13,7 @@ def ifAdmin():
 def isAuthenticated(username, password):
     connection = dbConnect()
     cursor = connection.cursor()
-    cursor.execute(f"SELECT * FROM Clients WHERE username={username} AND password={password}")
+    cursor.execute(f"SELECT * FROM Users WHERE username={username} AND password={password}")
     result = cursor.fetchall()
     connection.close()
     if len(result)>0:
