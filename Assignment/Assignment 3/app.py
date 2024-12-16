@@ -1,4 +1,3 @@
-import re
 from flask import Flask, redirect,render_template,request, session, url_for
 from helper import *
 
