@@ -1,0 +1,30 @@
+__pycache__
+*.pyc
+*.pyo
+*.py.class
+
+# Directories
+build
+dist
+htmlcov
+htmlcov/*
+htmlcov/*/*
+htmlcov/*/*/*                                                                 
+htmlcov/*/*/*/*
+htmlcov/*/*/*
+
+# Test and output data
+*.out
+*.err
+
+
+# Distribution
+*.egg-info
+*.dist-info
+
+.env
+
+# Pytest
+.pytest_cache
+
+*temp*

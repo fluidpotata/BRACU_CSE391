@@ -1,6 +1,25 @@
+import sqlite3
+
+
+def dbConnect():
+    return sqlite3.connect('main.db')
+
+
 def ifAdmin():
     # database connection
     return # result
+
+
+def isAuthenticated(connection,username, password):
+    # cursor = connection.cursor()
+    # cursor.execute(f"SELECT * FROM Clients WHERE username={username} AND password={password}")
+    # result = cursor.fetchall()
+    # if len(result)>0:
+    #     return True
+    # return False
+    if username == 'admin' and password == 'admin':
+        return True
+    return False
 
 
 def clientRegister():
