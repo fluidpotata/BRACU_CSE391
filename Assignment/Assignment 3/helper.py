@@ -88,7 +88,7 @@ def ifAppointmentExists(carLicenseNumber, carEngineNumber, carAppointmentDate, m
 def getClientAppointments():
     connection = dbConnect()
     cursor = connection.cursor()
-    cursor.execute(f"SELECT * FROM Appointments")
+    cursor.execute("SELECT * FROM Appointments WHERE DATE(carAppointmentDate) >= DATE('now')")
     result = cursor.fetchall()
     connection.close()
     return result
