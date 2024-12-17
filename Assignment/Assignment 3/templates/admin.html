@@ -47,18 +47,22 @@
                                     <th>Mechanic</th>
                                     <th>Car License</th>
                                     <th>Car Engine</th>
+                                    <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {% for i in data %}
                                 <tr>
-                                    <th>{{i[2]}}</th>
-                                    <th>{{i[0]}}</th>
-                                    <th>{{i[1]}}</th>
-                                    <th>{{i[3]}}</th>
-                                    <th>{{i[4]}}</th>
+                                    <td>{{ i[4] }}</td>
+                                    <td>{{ i[0] }}</td>
+                                    <td>{{ i[1] }}</td>
+                                    <td>{{ i[2] }}</td>
+                                    <td>{{ i[3] }}</td>
+                                    <td>
+                                        <button class="btn btn-primary btn-sm" onclick="editAppointment('{{ i[4] }}', '{{ i[1] }}', '{{ i[2] }}', '{{ i[3] }}')" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
+                                    </td>
                                 </tr>
-                                {% endfor%}
+                                {% endfor %}
                             </tbody>
                         </table>
                     </div>
@@ -67,8 +71,50 @@
         </div>
     </div>
 
+    <div class="modal fade" id="editModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Appointment</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editForm" action="/update_appointment" method="POST">
+                        <input type="hidden" id="oldLicense" name="oldLicense">
+                        <input type="hidden" id="oldEngine" name="oldEngine">
+                        <div class="mb-3">
+                            <label class="form-label">Appointment Date</label>
+                            <input type="date" class="form-control" id="newDate" name="newDate" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Mechanic</label>
+                            <select class="form-control" id="newMechanic" name="newMechanic" required>
+                                {% for j in mechanics %}
+                                <option value="{{ j[0] }}">{{ j[1] }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Update Appointment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function editAppointment(date, mechanic, license, engine) {
+            document.getElementById('oldLicense').value = license;
+            document.getElementById('oldEngine').value = engine;
+            document.getElementById('newDate').value = date;
+            const mechanicSelect = document.getElementById('newMechanic');
+            for(let i = 0; i < mechanicSelect.options.length; i++) {
+                if(mechanicSelect.options[i].text === mechanic) {
+                    mechanicSelect.selectedIndex = i;
+                    break;
+                }
+            }
+        }
+    </script>
 </body>
 </html>
