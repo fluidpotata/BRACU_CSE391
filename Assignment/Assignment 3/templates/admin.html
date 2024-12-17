@@ -53,13 +53,13 @@
                             <tbody>
                                 {% for i in data %}
                                 <tr>
-                                    <td>{{ i[4] }}</td>
+                                    <td>{{ i[2] }}</td>
                                     <td>{{ i[0] }}</td>
                                     <td>{{ i[1] }}</td>
-                                    <td>{{ i[2] }}</td>
                                     <td>{{ i[3] }}</td>
+                                    <td>{{ i[4] }}</td>
                                     <td>
-                                        <button class="btn btn-primary btn-sm" onclick="editAppointment('{{ i[4] }}', '{{ i[1] }}', '{{ i[2] }}', '{{ i[3] }}')" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
+                                        <button class="btn btn-primary btn-sm" onclick="editAppointment('{{ i[2] }}', '{{ i[1] }}', '{{ i[3] }}', '{{ i[4] }}')" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
                                     </td>
                                 </tr>
                                 {% endfor %}
