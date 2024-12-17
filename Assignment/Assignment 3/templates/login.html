@@ -8,7 +8,7 @@
     <style>
         .mainForm{
             display: flex;
-            height: 100vh;
+            height: 90vh;
         }
         .formCenter{
             align-items: center;
@@ -46,6 +46,9 @@
             <div class="mb-3">
             <label for="password" class="form-label">Password</label>
             <input type="password" class="form-control" id="password" name="password">
+            </div>
+            <div>
+                Already have an account? <a href="/login">Login here</a>
             </div>
             {% if error %}
             <div class="mb-3">
