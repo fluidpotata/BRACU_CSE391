@@ -88,6 +88,8 @@ def dashboard():
             session.pop('flash')
         try:
             if session['username']:
+                if ifAdmin(session['username']):
+                    return redirect(url_for('admin'))
                 return render_template('dashboard.html', flash=flash)
         except:
             return redirect(url_for('login'))
@@ -111,6 +113,8 @@ def appointment():
     elif request.method == 'GET':
         try:
             if session['username']:
+                if ifAdmin(session['username']):
+                    return redirect(url_for('admin'))
                 data = session.get('mechanic')
                 date = data['carAppointmentDate']
                 mech = showAllMechanics(date)
