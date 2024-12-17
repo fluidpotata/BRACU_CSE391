@@ -26,7 +26,7 @@ def login():
     elif request.method == 'GET':
         try:
             if session['username']:
-                return render_template('dashboard.html')
+                return redirect(url_for('dashboard'))
         except:
             return render_template('login.html')
 
@@ -35,7 +35,7 @@ def login():
 def signup():
     if request.method == 'GET':
         if 'username' in session:
-            return render_template('dashboard.html')
+            return redirect(url_for('dashboard'))
         else:
             return render_template('signup.html')
     elif request.method == 'POST':
