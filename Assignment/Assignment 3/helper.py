@@ -113,6 +113,15 @@ def getClientName(userid):
     connection.close()
     return result[0][0]
 
+def getClientPhone(userid):
+    connection = dbConnect()
+    cursor = connection.cursor()
+    cursor.execute(f"SELECT phone FROM Users WHERE id='{userid}'")
+    result = cursor.fetchall()
+    connection.close()
+    return result[0][0]
+
+
 
 def getMechanicName(mechaID):
     connection = dbConnect()

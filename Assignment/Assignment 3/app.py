@@ -63,7 +63,7 @@ def admin():
     tdata = getClientAppointments()
     data = []
     for i in tdata:
-        data.append((getClientName(i[1]), getMechanicName(i[2]), i[3], i[4], i[5], i[0]))
+        data.append((getClientName(i[1]), getMechanicName(i[2]), i[3], i[4], i[5], i[0], getClientPhone(i[1])))
     mechanics = showAllMechanics(datetime.now().strftime('%Y-%m-%d'))
     return render_template('admin.html', data=data, mechanics=mechanics)
 

@@ -47,6 +47,7 @@
                                     <th>Mechanic</th>
                                     <th>Car License</th>
                                     <th>Car Engine</th>
+                                    <th>Phone Number</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -58,6 +59,7 @@
                                     <td>{{ i[1] }}</td>
                                     <td>{{ i[3] }}</td>
                                     <td>{{ i[4] }}</td>
+                                    <td>{{ i[6] }}</td>
                                     <td>
                                         <button class="btn btn-primary btn-sm" onclick="editAppointment('{{ i[2] }}', '{{ i[1] }}', '{{ i[5] }}')" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
                                     </td>
