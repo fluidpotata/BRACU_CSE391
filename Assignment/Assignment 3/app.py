@@ -1,4 +1,4 @@
-from flask import Flask, redirect,render_template,request, session, url_for, flash
+from flask import Flask, redirect,render_template,request, session, url_for
 from helper import *
 from datetime import datetime
 
@@ -26,6 +26,8 @@ def login():
     elif request.method == 'GET':
         try:
             if session['username']:
+                if ifAdmin(session['username']):
+                    return redirect(url_for('admin'))
                 return redirect(url_for('dashboard'))
         except:
             return render_template('login.html')
@@ -35,6 +37,8 @@ def login():
 def signup():
     if request.method == 'GET':
         if 'username' in session:
+            if ifAdmin(session['username']):
+                return redirect(url_for('admin'))
             return redirect(url_for('dashboard'))
         else:
             return render_template('signup.html')
