@@ -1,5 +1,6 @@
 from flask import Flask, redirect,render_template,request, session, url_for
 from helper import *
+from datetime import datetime
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "any random string"
@@ -33,7 +34,7 @@ def login():
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == 'GET':
-        if session['username']:
+        if 'username' in session:
             return render_template('dashboard.html')
         else:
             return render_template('signup.html')
@@ -59,7 +60,8 @@ def admin():
     data = []
     for i in tdata:
         data.append((getClientName(i[1]), getMechanicName(i[2]), i[3], i[4], i[5]))
-    return render_template('admin.html', data=data)
+    mechanics = showAllMechanics(datetime.now().strftime('%Y-%m-%d'))
+    return render_template('admin.html', data=data, mechanics=mechanics)
 
 
 @app.route('/dashboard', methods=['GET', 'POST'])
@@ -69,6 +71,8 @@ def dashboard():
         data['carLicenseNumber'] = request.form['carLicenseNumber']
         data['carEngineNumber'] = request.form['carEngineNumber']
         data['carAppointmentDate'] = request.form['carAppointmentDate']
+        if ifAppointmentExists(data['carLicenseNumber'], data['carEngineNumber'], data['carAppointmentDate']):
+            return render_template('dashboard.html', error="You have already taken an appointment")
         # return render_template('appointment.html', carLicenseNumber=carLicenseNumber, carEngineNumber=carEngineNumber, carAppointmentDate=carAppointmentDate)
         session['mechanic'] = data
         return redirect(url_for('appointment'))
@@ -103,6 +107,22 @@ def appointment():
                 return render_template('appointment.html', mechanics=mech)
         except:
             return redirect(url_for('login'))
+
+@app.route('/update_appointment', methods=['POST'])
+def update_appointment():
+    if 'username' not in session or not ifAdmin(session['username']):
+        return redirect(url_for('login'))
+        
+    oldLicense = request.form['oldLicense']
+    oldEngine = request.form['oldEngine']
+    newDate = request.form['newDate']
+    newMechanic = request.form['newMechanic']
+    
+    if not isMechanicAvailable(newDate, newMechanic):
+        return "Mechanic not available", 400
+        
+    updateAppointment(oldLicense, oldEngine, newDate, newMechanic)
+    return redirect(url_for('admin'))
 
 @app.route('/logout')
 def logout():

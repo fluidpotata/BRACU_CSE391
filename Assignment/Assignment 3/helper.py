@@ -72,13 +72,13 @@ def showAllMechanics(date):
     connection.close()
     return result
 
-def ifAppointmentExists(carLicenseNumber, carEngineNumber, carAppointmentDate, mechanic):
+def ifAppointmentExists(carLicenseNumber, carEngineNumber, carAppointmentDate, mechanic=None):
     # After a client makes data submission, it should check whether the client has already taken any appointment from any mechanic on certain date or not
     # If not, then the client is allowed to take an appointment
     # otherwise s/he will be notifying that he has already taken an appointment on that specific date.
     connection = dbConnect()
     cursor = connection.cursor()
-    cursor.execute(f"SELECT * FROM Appointments WHERE carLicenseNumber='{carLicenseNumber}' AND carEngineNumber='{carEngineNumber}' AND carAppointmentDate='{carAppointmentDate}' AND mechanicID='{mechanic}'")
+    cursor.execute(f"SELECT * FROM Appointments WHERE (carLicenseNumber='{carLicenseNumber}' OR carEngineNumber='{carEngineNumber}') AND carAppointmentDate='{carAppointmentDate}'")
     result = cursor.fetchall()
     connection.close()
     if len(result)>0:
@@ -121,3 +121,15 @@ def getMechanicName(mechaID):
     result = cursor.fetchall()
     connection.close()
     return result[0][0]+" "+result[0][1]
+
+def updateAppointment(oldLicense, oldEngine, newDate, newMechanic):
+    connection = dbConnect()
+    cursor = connection.cursor()
+    cursor.execute(f"""
+        UPDATE Appointments 
+        SET carAppointmentDate = '{newDate}', mechanicID = '{newMechanic}'
+        WHERE carLicenseNumber = '{oldLicense}' AND carEngineNumber = '{oldEngine}'
+    """)
+    connection.commit()
+    connection.close()
+    return True
