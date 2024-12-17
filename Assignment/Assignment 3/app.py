@@ -59,7 +59,7 @@ def admin():
     tdata = getClientAppointments()
     data = []
     for i in tdata:
-        data.append((getClientName(i[1]), getMechanicName(i[2]), i[3], i[4], i[5]))
+        data.append((getClientName(i[1]), getMechanicName(i[2]), i[3], i[4], i[5], i[0]))
     mechanics = showAllMechanics(datetime.now().strftime('%Y-%m-%d'))
     return render_template('admin.html', data=data, mechanics=mechanics)
 
@@ -69,7 +69,6 @@ def dashboard():
     if request.method == 'POST':
         data = {}
         data['carLicenseNumber'] = request.form['carLicenseNumber']
-        data['carEngineNumber'] = request.form['carEngineNumber']
         data['carAppointmentDate'] = request.form['carAppointmentDate']
         if ifAppointmentExists(data['carLicenseNumber'], data['carEngineNumber'], data['carAppointmentDate']):
             return render_template('dashboard.html', error="You have already taken an appointment")
@@ -113,15 +112,14 @@ def update_appointment():
     if 'username' not in session or not ifAdmin(session['username']):
         return redirect(url_for('login'))
         
-    oldLicense = request.form['oldLicense']
-    oldEngine = request.form['oldEngine']
+    appointmentID = request.form['appointmentID']
     newDate = request.form['newDate']
     newMechanic = request.form['newMechanic']
     
     if not isMechanicAvailable(newDate, newMechanic):
         return "Mechanic not available", 400
         
-    updateAppointment(oldLicense, oldEngine, newDate, newMechanic)
+    updateAppointment(appointmentID, newDate, newMechanic)
     return redirect(url_for('admin'))
 
 @app.route('/logout')

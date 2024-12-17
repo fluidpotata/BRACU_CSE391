@@ -122,13 +122,13 @@ def getMechanicName(mechaID):
     connection.close()
     return result[0][0]+" "+result[0][1]
 
-def updateAppointment(oldLicense, oldEngine, newDate, newMechanic):
+def updateAppointment(appointmentID, newDate, newMechanic):
     connection = dbConnect()
     cursor = connection.cursor()
     cursor.execute(f"""
         UPDATE Appointments 
         SET carAppointmentDate = '{newDate}', mechanicID = '{newMechanic}'
-        WHERE carLicenseNumber = '{oldLicense}' AND carEngineNumber = '{oldEngine}'
+        WHERE id = '{appointmentID}'
     """)
     connection.commit()
     connection.close()
