@@ -1,4 +1,4 @@
-from flask import Flask, redirect,render_template,request, session, url_for
+from flask import Flask, redirect,render_template,request, session, url_for, flash
 from helper import *
 from datetime import datetime
 
@@ -68,6 +68,7 @@ def admin():
 def dashboard():
     if request.method == 'POST':
         data = {}
+        data['carEngineNumber'] = request.form['carEngineNumber']
         data['carLicenseNumber'] = request.form['carLicenseNumber']
         data['carAppointmentDate'] = request.form['carAppointmentDate']
         if ifAppointmentExists(data['carLicenseNumber'], data['carEngineNumber'], data['carAppointmentDate']):
@@ -76,9 +77,14 @@ def dashboard():
         session['mechanic'] = data
         return redirect(url_for('appointment'))
     elif request.method == 'GET':
+        if 'flash' not in session:
+            flash = None
+        else:
+            flash = session['flash']
+            session.pop('flash')
         try:
             if session['username']:
-                return render_template('dashboard.html')
+                return render_template('dashboard.html', flash=flash)
         except:
             return redirect(url_for('login'))
 
@@ -94,6 +100,7 @@ def appointment():
             return render_template('appointment.html', error="You have already taken an appointment")
         if isMechanicAvailable(carAppointmentDate, mechanic):
             takeAppointment(session['username'], carLicenseNumber, carEngineNumber, carAppointmentDate, mechanic)
+            session['flash'] = 'Appointment Success'
             return redirect(url_for('dashboard'))
         else:
             return render_template('appointment.html', error="Mechanic is not available")
